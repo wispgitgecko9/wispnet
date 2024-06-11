@@ -1,4 +1,4 @@
-Sure, I can update the font to Menlo. Here is the modified HTML with the Menlo font:
+Certainly! Below is the updated HTML code with an additional small column on the left:
 
 ```html
 <!DOCTYPE html>
@@ -6,7 +6,7 @@ Sure, I can update the font to Menlo. Here is the modified HTML with the Menlo f
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WispNet.org</title>
+    <title>WISPNET.org – The WISPNET Project</title>
     <style>
         body {
             background-color: #6BC140;
@@ -24,10 +24,20 @@ Sure, I can update the font to Menlo. Here is the modified HTML with the Menlo f
             text-align: center;
             background-color: rgba(0, 0, 0, 0.3);
         }
-        main {
+        .container {
+            display: flex;
             width: 90%;
-            max-width: 800px;
+            max-width: 1200px;
             margin: 20px 0;
+        }
+        .sidebar {
+            width: 20%;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.2);
+            margin-right: 20px;
+        }
+        .content {
+            width: 80%;
         }
         section {
             margin-bottom: 40px;
@@ -48,27 +58,21 @@ Sure, I can update the font to Menlo. Here is the modified HTML with the Menlo f
 </head>
 <body>
     <header>
-        <h1>WispNet.org</h1>
+        <h1>WISPNET.org</h1>
     </header>
-    <main>
-        <section id="project1">
-            <h2>Project 1: Chatbot Development</h2>
-            <p>Exploring the capabilities of AI to create responsive and intelligent chatbots.</p>
-        </section>
-        <section id="project2">
-            <h2>Project 2: Web Scraping Automation</h2>
-            <p>Automating data collection from various websites using web scraping techniques.</p>
-        </section>
-        <section id="project3">
-            <h2>Project 3: Natural Language Processing</h2>
-            <p>Implementing NLP to understand and generate human language, enhancing user interaction.</p>
-        </section>
-        <section id="project4">
-            <h2>Project 4: Data Visualization</h2>
-            <p>Creating insightful and interactive visual representations of complex data sets.</p>
-        </section>
-    </main>
-    <footer>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Sidebar</h2>
+            <p>Links and info can go here.</p>
+        </div>
+        <div class="content">
+            <section id="About">
+                <h2>About Us: WISPNET</h2>
+                <p>The wispnet is an experimental LAN (Local Area Network) network created by William S. Popovici for educational purposes that continue to evolve. If </p>
+            </section>
+            
+        </div>
+    </div>
         <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://www.wispnet.org">WISPNET Website</a> by <span property="cc:attributionName">William S. Popovici</span> is licensed under <a href="https://creativecommons.org/licenses/by-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt=""></a></p>
     </footer>
 </body>
