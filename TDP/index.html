@@ -5,16 +5,15 @@
   <meta charset="utf-8">
   <title>What We Do</title>
   <style>
-     body {
+    body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-image: url('https://static.wixstatic.com/media/a3c153_3592f141741849e8b2cb99afa8e3a412~mv2.jpg'); /* Change to your image path */
-      background-size: cover; /* Ensures the image covers the entire area */
-      background-position: center; /* Center the image */
-      background-repeat: no-repeat; /* Prevents the image from repeating */
+      background: url('https://static.wixstatic.com/media/a3c153_3592f141741849e8b2cb99afa8e3a412~mv2.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #333;
     }
+
     header {
       background-color: #4CAF50;
       color: white;
@@ -50,11 +49,11 @@
       color: white;
       text-align: center;
       padding: 10px 0;
-      position: relative;
-      bottom: 0;
+      position: relative; /* Use relative to prevent overlap issues */
       width: 100%;
-      position: absolute
+      margin-top: auto; /* Ensures it moves down the page with content */
     }
+
     .hidden {
       display: none;
     }
