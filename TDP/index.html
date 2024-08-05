@@ -12,6 +12,8 @@
       background: url('https://static.wixstatic.com/media/a3c153_3592f141741849e8b2cb99afa8e3a412~mv2.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #333;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
@@ -38,6 +40,7 @@
     }
     .container {
       margin: 20px;
+      flex: 1;
     }
          .main {
             flex: 70%;
@@ -49,9 +52,10 @@
       color: white;
       text-align: center;
       padding: 10px 0;
-      position: relative; /* Use relative to prevent overlap issues */
+      /* position: relative; /* Use relative to prevent overlap issues */ */
       width: 100%;
       margin-top: auto; /* Ensures it moves down the page with content */
+      
     }
 
     .hidden {
