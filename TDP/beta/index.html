@@ -10,15 +10,16 @@
       padding: 10px 0;
       text-align: center;
     }
-     body {
+    body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-image: url('wisp.wispnet.org/resources/hanging-lightbulb_img(DSC_0207).JPG');
-      background-size: cover; /* Ensures the image covers the entire area */
-      background-position: center; /* Center the image */
-      background-repeat: no-repeat; /* Prevents the image from repeating */
+      background: url('https://wisp.wispnet.org/resources/hanging-lightbulb_img(DSC_0207).JPG') no-repeat center center fixed;
+      background-size: cover;
       color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Ensure full height of the viewport */
     }
     footer {
       background-color: #f4f4f4;
@@ -32,13 +33,12 @@
     }
   </style>
 </head>
-<body>
   <header>
     <h1>The WISPNET Beta</h1>
     <p>This subfolder contains test HTML files used for the future development of this website.</p>
   </header>
+  <body></body>
 <footer>
   <p>For questions or concerns please contact admin@wispnet.org.</p>
 </footer>
-</body>
 </html>
