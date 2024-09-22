@@ -1,1 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong vs. Computer</title>
+    <style>
+        body {
+    background-color: #333; 
+}
 
+        canvas {
+            background-color: #333;
+            display: block;
+            margin: 0 auto;
+            border: 2px solid #f4f4f4;
+        }
+
+        #controls {
+            text-align: center;
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .scoreboard {
+            font-size: 20px;
+            font-weight: bold;
+            color: #f4f4f4;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="pongCanvas" width="600" height="400"></canvas>
+    
+    <div id="controls">
+        <button id="startBtn">Start</button>
+        <button id="pauseBtn">Pause</button>
+        <div class="scoreboard">
+            <span>Player: <span id="playerScore">0</span></span> | 
+            <span>Computer: <span id="computerScore">0</span></span>
+        </div>
+        <div class="level-buttons">
+            <button id="easyBtn">Easy</button>
+            <button id="mediumBtn">Medium</button>
+            <button id="hardBtn">Hard</button>
+        </div>        
+    </div>
+    
+    <script src="pong.js"></script>
+</body>
+</html>
