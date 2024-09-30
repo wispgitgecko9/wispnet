@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IOserver</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth; /* Enables smooth scrolling */
+      font-family: Arial, sans-serif;
+      color: #f4f4f4;
+    }
+
+    section {
+      height: 100vh; /* Full viewport height for each section */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    p {
+      font-size: 1.5em;
+      margin: 10px 0;
+      max-width: 600px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Background images for each section */
+    #section1 {
+      background: url('https://wisp.wispnet.org/resources/redlight-trainyard_img(DSC_0157).JPG') no-repeat center;
+    }
+
+    #section2 {
+      background: url('https://wisp.wispnet.org/resources/x/pong.png') no-repeat center center;
+    }
+
+    #section3 {
+      background: url('https://wisp.wispnet.org/resources/third-image.jpg') no-repeat center center;
+    }
+
+    nav {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+    }
+
+    nav a {
+      color: #f4f4f4;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1.2em;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#section1">Welcome</a>
+    <a href="#section2">About</a>
+    <a href="#section3">Games</a>
+  </nav>
+
+  <section id="section1">
+    <h1>Welcome to IOserver</h1>
+    <p>A collection of JavaScript-based games created for your entertainment. This site should be updated shortly!</p>
+  </section>
+
+  <section id="section2">
+    <h1>About IOserver</h1>
+    <p>IOserver is a web-based platform dedicated to hosting simple JavaScript games for users to enjoy. Stay tuned for more updates!</p>
+  </section>
+
+  <section id="section3">
+    <h1>Games Collection</h1>
+    <p>Explore our collection of fun and engaging JavaScript games, handpicked for your entertainment.</p>
+  </section>
+
+</body>
+</html>
