@@ -138,6 +138,7 @@ function setEasyLevel() {
 function setMediumLevel() {
     ballSpeed = 3;  // Default ball speed
     computerPaddleSpeed = 2;  // Default computer paddle speed
+    
 }
 
 function setHardLevel() {
