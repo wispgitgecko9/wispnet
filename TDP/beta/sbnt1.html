@@ -39,17 +39,39 @@
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     }
 
+    a {
+      font-size: 1.5em;
+      margin: 10px 0;
+      max-width: 600px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      color: #4CAF50;
+      text-decoration: none;
+    }
+
     /* Background images for each section */
-    #section1 {
+    #welcome {
       background: url('https://wisp.wispnet.org/resources/redlight-trainyard_img(DSC_0157).JPG') no-repeat center;
+      background-size: cover;
     }
 
-    #section2 {
+    #about {
+      background: url('https://wisp.wispnet.org/resources/') no-repeat center center;
+      background-size: cover;
+    }
+
+    #pong {
       background: url('https://wisp.wispnet.org/resources/x/pong.png') no-repeat center center;
+      background-size: cover;
     }
 
-    #section3 {
-      background: url('https://wisp.wispnet.org/resources/third-image.jpg') no-repeat center center;
+    #maze {
+      background: url('https://wisp.wispnet.org/resources/') no-repeat center center;
+      background-size: cover;
+    }
+
+    #extra {
+      background: url('https://wisp.wispnet.org/resources/') no-repeat center center;
+      background-size: cover;
     }
 
     nav {
@@ -68,7 +90,7 @@
     }
 
     nav a:hover {
-      text-decoration: underline;
+      text-decoration: none;
     }
 
   </style>
@@ -80,20 +102,26 @@
     <a href="#section3">Games</a>
   </nav>
 
-  <section id="section1">
+  <section id="welcome">
     <h1>Welcome to IOserver</h1>
-    <p>A collection of JavaScript-based games created for your entertainment. This site should be updated shortly!</p>
+    <p>A collection of JavaScript-based games created while learning JavaScript. Check them out!</p>
   </section>
 
-  <section id="section2">
+  <section id="about">
     <h1>About IOserver</h1>
     <p>IOserver is a web-based platform dedicated to hosting simple JavaScript games for users to enjoy. Stay tuned for more updates!</p>
   </section>
 
-  <section id="section3">
+  <section id="extra">
     <h1>Games Collection</h1>
     <p>Explore our collection of fun and engaging JavaScript games, handpicked for your entertainment.</p>
   </section>
+
+  <section id="pong">
+    <h1> <a href="/IOserver/Pong/">Pong</a> </h1>
+    <p>Play a classic dating back to 1972. A simple but effective Pong!</p>
+</section>
+
 
 </body>
 </html>
