@@ -23,28 +23,28 @@
 
     header {
       background-color: #4CAF50;
-      color: white;
+      color: #f4f4f4;
       padding: 10px 0;
       text-align: center;
     }
-
-    a {
-  color: inherit;           /* Inherit color from surrounding text */
-  text-decoration: none;    /* Remove underline */
-}
-
-a:hover {
-  text-decoration: underline; /* Optional: underline on hover */
-}
-
     nav {
       background-color: #333;
       overflow: hidden;
     }
+
+    a {
+      color: inherit;           /* Inherit color from surrounding text */
+      text-decoration: none;    /* Remove underline */
+    }
+
+    a:hover {
+      text-decoration: underline; /* Optional: underline on hover */
+    }
+
     nav a {
       float: left;
       display: block;
-      color: white;
+      color: #f4f4f4;
       text-align: center;
       padding: 14px 20px;
       text-decoration: none;
@@ -56,18 +56,22 @@ a:hover {
     .container {
       margin: 20px;
       flex: 1;
+      border-radius: 12px; /* Adjust the radius for more or less rounding */
+      overflow: hidden; 
     }
     .main {
       flex: 70%;
       padding: 20px;
-      background-color: white;
+      background-color: #f4f4f4;
+      border-radius: 12px; /* Adjust the radius for more or less rounding */
+      overflow: hidden; 
     }
     .spacer {
       flex-grow: 1; /* Spacer to push footer to the bottom */
     }
     footer {
       background-color: #333;
-      color: white;
+      color: #f4f4f4;
       text-align: center;
       padding: 10px 0;
       width: 100%;
