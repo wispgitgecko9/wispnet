@@ -8,25 +8,35 @@
   <link rel="apple-touch-icon" sizes="180x180" href="resources/icx/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="resources/icx/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="resources/icx/favicon-16x16.png">
-  <link rel="manifest" href="resources/icx/site.webmanifest">
-  <meta name="theme-color" content="#333">
   <style>
-     body {
+    body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-image: url('https://static.wixstatic.com/media/a3c153_3592f141741849e8b2cb99afa8e3a412~mv2.jpg'); /* Change to your image path */
-      background-size: cover; /* Ensures the image covers the entire area */
-      background-position: center; /* Center the image */
-      background-repeat: no-repeat; /* Prevents the image from repeating */
+      background: url('https://static.wixstatic.com/media/a3c153_3592f141741849e8b2cb99afa8e3a412~mv2.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
+
     header {
       background-color: #4CAF50;
       color: white;
       padding: 10px 0;
       text-align: center;
     }
+
+    a {
+  color: inherit;           /* Inherit color from surrounding text */
+  text-decoration: none;    /* Remove underline */
+}
+
+a:hover {
+  text-decoration: underline; /* Optional: underline on hover */
+}
+
     nav {
       background-color: #333;
       overflow: hidden;
@@ -45,21 +55,22 @@
     }
     .container {
       margin: 20px;
+      flex: 1;
     }
-         .main {
-            flex: 70%;
-            padding: 20px;
-            background-color: white;
-        }
+    .main {
+      flex: 70%;
+      padding: 20px;
+      background-color: white;
+    }
+    .spacer {
+      flex-grow: 1; /* Spacer to push footer to the bottom */
+    }
     footer {
       background-color: #333;
       color: white;
       text-align: center;
       padding: 10px 0;
-      position: relative;
-      bottom: 0;
       width: 100%;
-      position: absolute
     }
     .hidden {
       display: none;
@@ -107,10 +118,13 @@
       </section>
       <section id="contact" class="hidden">
         <h2>Contact</h2>
-        <p>For questions or concerns, please contact admin@wispnet.org.</p>
+        <p>For questions or concerns, please contact <a href="mailto:admin@wispnet.org?subject=WISPNET Traveler">admin@wispnet.org</a>.</p>
       </section>
     </div>
   </div>
+
+  <div class="spacer"></div> <!-- Spacer to push footer down -->
+
   <footer>
     <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
       <a property="dct:title" rel="cc:attributionURL" href="https://www.wispnet.org">WISPNET Website</a> by
@@ -122,7 +136,7 @@
         <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt="">
       </a>
     </p>
-    <p>For questions or concerns please contact admin@wispnet.org.</p>
+    <p>For questions or concerns please contact <a href="mailto:admin@wispnet.org?subject=WISPNET Traveler">admin@wispnet.org</a>.</p>
   </footer>
 </body>
 </html>
