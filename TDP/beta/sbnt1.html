@@ -47,15 +47,26 @@
       color: #4CAF50;
       text-decoration: none;
     }
+    
+    .logo-container {
+      position: absolute;
+      top: 15px; /* Adjust to move up or down */
+      left: 20px; /* Adjust to move left or right */
 
-    /* Background images for each section */
+    }
+
+    .logo-container img {
+      width: 64px; /* Smaller width */
+      height: 64px; /* Smaller height */
+    }
+
     #welcome {
       background: url('https://wisp.wispnet.org/resources/redlight-trainyard_img(DSC_0157).JPG') no-repeat center;
       background-size: cover;
     }
 
     #about {
-      background: url('https://wisp.wispnet.org/resources/') no-repeat center center;
+      background: url('https://wisp.wispnet.org/resources/trainrun_img(IMG_0936).jpeg') no-repeat center center;
       background-size: cover;
     }
 
@@ -65,8 +76,9 @@
     }
 
     #maze {
-      background: url('https://wisp.wispnet.org/resources/') no-repeat center center;
+      /* background: url('https://wisp.wispnet.org/resources/x/maze.png') no-repeat center center; */
       background-size: cover;
+      background-color: #333;
     }
 
     #extra {
@@ -74,7 +86,7 @@
       background-size: cover;
     }
 
-    nav {
+    /* nav {
       position: fixed;
       top: 10px;
       left: 10px;
@@ -91,16 +103,19 @@
 
     nav a:hover {
       text-decoration: none;
-    }
+    } */
 
   </style>
 </head>
 <body>
-  <nav>
+  <div class="logo-container">
+    <img src="https://wisp.wispnet.org/depreciated/oldlogo/WNLogo-2.png" alt="WISPNET Logo">
+  </div> 
+  <!-- <nav>
     <a href="#section1">Welcome</a>
     <a href="#section2">About</a>
     <a href="#section3">Games</a>
-  </nav>
+  </nav> -->
 
   <section id="welcome">
     <h1>Welcome to IOserver</h1>
@@ -112,14 +127,19 @@
     <p>IOserver is a web-based platform dedicated to hosting simple JavaScript games for users to enjoy. Stay tuned for more updates!</p>
   </section>
 
-  <section id="extra">
+  <!-- <section id="extra">
     <h1>Games Collection</h1>
     <p>Explore our collection of fun and engaging JavaScript games, handpicked for your entertainment.</p>
-  </section>
+  </section> -->
 
   <section id="pong">
     <h1> <a href="/IOserver/Pong/">Pong</a> </h1>
     <p>Play a classic dating back to 1972. A simple but effective Pong!</p>
+</section>
+
+<section id="maze">
+  <h1> <a href="/IOserver/Maze/">Maze</a> </h1>
+  <p>As obslete and buggy as it may seem, the Maze game of IOserver was the first game aired on the first local WISPNET network. I hope you enjoy!</p>
 </section>
 
 
