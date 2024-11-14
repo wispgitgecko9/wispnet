@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>What We Do</title>
+  <meta name="description" content="The WISPNET project is a quickly growing umbrella of all of the endeavors of WiSP and the WISPNET community.">
+  <link rel="icon" href="resources/icx/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="resources/icx/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="resources/icx/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="resources/icx/favicon-16x16.png">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://static.wixstatic.com/media/a3c153_3592f141741849e8b2cb99afa8e3a412~mv2.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: #f4f4f4;
+      padding: 10px 0;
+      text-align: center;
+    }
+    nav {
+      background-color: #333;
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;           /* Inherit color from surrounding text */
+      text-decoration: none;    /* Remove underline */
+    }
+
+    a:hover {
+      text-decoration: none; /* Optional: underline on hover */
+    }
+
+    nav a {
+      float: left;
+      display: block;
+      color: #f4f4f4;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+    nav a:hover {
+      background-color: #f4f4f4;
+      color: black;
+      border-radius: 12px; /* Adjust the radius for more or less rounding */
+      overflow: hidden; 
+    }
+    .container {
+      margin: 20px;
+      flex: 1;
+      border-radius: 12px; /* Adjust the radius for more or less rounding */
+      overflow: hidden; 
+    }
+    .main {
+      flex: 70%;
+      padding: 20px;
+      background-color: #f4f4f4;
+      border-radius: 12px; /* Adjust the radius for more or less rounding */
+      overflow: hidden; 
+    }
+    .spacer {
+      flex-grow: 1; /* Spacer to push footer to the bottom */
+    }
+
+    .sidebar {
+        
+
+    }
+    footer {
+      background-color: #333;
+      color: #f4f4f4;
+      text-align: center;
+      padding: 10px 0;
+      width: 100%;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+  <script>
+    function showSection(sectionId) {
+      var sections = document.querySelectorAll('.main section');
+      sections.forEach(function(section) {
+        section.classList.add('hidden');
+      });
+      document.getElementById(sectionId).classList.remove('hidden');
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      showSection('home'); // Show home section by default
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1>WISPNET</h1>
+    <p>This is the Test Development Site.</p>
+  </header>
+  <nav>
+    <a href="javascript:void(0)" onclick="showSection('home')">Home</a>
+    <a href="javascript:void(0)" onclick="showSection('about')">About</a>
+    <a href="javascript:void(0)" onclick="showSection('services')">Services</a>
+    <a href="javascript:void(0)" onclick="showSection('projects')">Projects</a>
+    <a href="javascript:void(0)" onclick="showSection('contact')">Contact</a>
+    <a href="javascript:void(0)" onclick="showSection('navigation')">Links</a>
+  </nav>
+  <div class="container">
+    <div class="main">
+      <section id="home">
+        <h2>Home</h2>
+        <p>This Test Development Site (TDS) will help further the learning of the WISPNET project as a practce workspace for various code implementations and improvments before they are released to the mainstram. The pre-realese to this site is the Test Development Page (<a href="https://wisp.wipsnet.org/TDP/">TDP</a>) which may not always be optimized.</p>
+        <p>Updates may be posted at a later date.</p>
+      </section>
+      <section id="about" class="hidden">
+        <h2>About</h2>
+        <p>The WISPNET is an experimental LAN (Local Area Network) network created by William S. Popovici for the purpose of repairing, utilizing, and learning about technology.</p>
+      </section>
+      <section id="services" class="hidden">
+        <h2>Services</h2>
+        <p>One of the many goals we have been working towards is Linux Mint-Basil, a modified distribution of Linux Mint which would be optimized for older or less powerful systems, such as Dell OptiPlex systems and Raspberry Pi systems. The WISPNET's web design services are not yet fully operational, but if you are interested in any future related services please contact us.</p>
+      </section>
+      <section id="projects" class="hidden">
+        <h2>Projects</h2>
+        <p>There are a few ongoing projects at WISPNET, such as the publically availible <a href="https://wisp.wipsnet.org/IOserver/">IOserver</a>! <a href="https://wisp.wipsnet.org/IOserver/">IOserver</a> is a collection of JavaScript-based singleplayer games created in the course of learning and entertainment.</p>
+      </section>
+      <section id="contact" class="hidden">
+        <h2>Contact</h2>
+        <p>For questions or concerns, please contact <a href="mailto:admin@wispnet.org?subject=WISPNET Traveler">admin@wispnet.org</a>.</p>
+      </section>
+      <section id="navigation" class="hidden">
+        <h2>Links</h2>
+        <p></p>
+      </section>
+    </div>
+  </div>
+
+  <div class="spacer"></div> <!-- Spacer to push footer down -->
+
+  <footer>
+    <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+      <a property="dct:title" rel="cc:attributionURL" href="https://www.wispnet.org">WISPNET Website</a> by
+      <span property="cc:attributionName">William S. Popovici</span> is licensed under
+      <a href="https://creativecommons.org/licenses/by-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">
+        CC BY-ND 4.0
+        <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="">
+        <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="">
+        <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt="">
+      </a>
+    </p>
+    <p>For questions or concerns please contact <a href="mailto:admin@wispnet.org?subject=WISPNET Traveler">admin@wispnet.org</a>.</p>
+  </footer>
+</body>
+</html>
