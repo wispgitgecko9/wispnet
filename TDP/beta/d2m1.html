@@ -68,26 +68,27 @@
       padding: 10px 15px;
     }
 
-    nav ul li ul {
+    /* Dropdown menu styles */
+    nav ul li .dropdown {
       display: none;
       position: absolute;
       background-color: #333;
-      top: 100%;
-      left: 0;
       min-width: 150px;
       z-index: 1;
+      top: 100%;
+      left: 0;
     }
 
-    nav ul li:hover ul {
+    nav ul li:hover .dropdown {
       display: block;
     }
 
-    nav ul li ul li {
+    nav ul li .dropdown li {
       padding: 10px;
       white-space: nowrap;
     }
 
-    nav ul li ul li a {
+    nav ul li .dropdown li a {
       padding: 10px;
     }
 
@@ -117,26 +118,19 @@
       <li><a href="#">Home</a></li>
       <li>
         <a href="#">About</a>
-        <ul>
-          <li><a href="#">Our Mission</a></li>
+        <ul class="dropdown">
+          <li><a href="#">Mission</a></li>
           <li><a href="#">Team</a></li>
-          <li><a href="#">History</a></li>
         </ul>
       </li>
       <li>
         <a href="#">Projects</a>
-        <ul>
+        <ul class="dropdown">
           <li><a href="#">Current Projects</a></li>
-          <li><a href="#">Completed Projects</a></li>
+          <li><a href="#">Past Projects</a></li>
         </ul>
       </li>
-      <li>
-        <a href="#">Community</a>
-        <ul>
-          <li><a href="#">Forums</a></li>
-          <li><a href="#">Events</a></li>
-        </ul>
-      </li>
+      <li><a href="#">Community</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
   </nav>
