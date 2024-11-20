@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fullscreen Sidebar</title>
+  <style>
+    /* General Reset */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* Sidebar Styling */
+    .sidebar {
+      height: 100%; /* Full height */
+      width: 0; /* Start with a width of 0 */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      top: 0;
+      left: 0;
+      background-color: #111; /* Black background */
+      overflow-x: hidden; /* Disable horizontal scroll */
+      transition: 0.5s; /* Smooth opening/closing */
+      padding-top: 60px; /* Add padding for content */
+    }
+
+    .sidebar a {
+      padding: 10px 15px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #fff;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #575757;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      font-size: 36px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* Main Content */
+    .main {
+      padding: 20px;
+    }
+
+    .open-btn {
+      font-size: 20px;
+      cursor: pointer;
+      background-color: #111;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+    }
+
+    .open-btn:hover {
+      background-color: #444;
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">×</a>
+    <a href="#">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Events</a>
+    <a href="#">Devotionals</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <button class="open-btn" onclick="openSidebar()">☰ Open Menu</button>
+    <h1>Placeholder Content here.</h1>
+    <p>Click the menu button to open the sidebar.</p>
+  </div>
+
+  <script>
+    function openSidebar() {
+      document.getElementById("mySidebar").style.width = "250px"; // Adjust width as needed
+    }
+
+    function closeSidebar() {
+      document.getElementById("mySidebar").style.width = "0";
+    }
+  </script>
+</body>
+</html>

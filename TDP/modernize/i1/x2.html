@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WISPNET | What We Do</title>
+  <meta name="description" content="The WISPNET project is a quickly growing umbrella of all of the endeavors of WiSP and the WISPNET community.">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://static.wixstatic.com/media/a3c153_3592f141741849e8b2cb99afa8e3a412~mv2.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #000;
+      color: #f4f4f4;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1em;
+      position: relative;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+    }
+
+    .hamburger img {
+      width: 30px;
+      height: 30px;
+    }
+
+    .nav-menu {
+      display: flex;
+    }
+
+    .nav-sidebar {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 250px;
+      height: 100vh;
+      background: rgba(244, 244, 244, 0.8);
+      box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 1000;
+    }
+
+    .nav-sidebar a {
+      color: #000;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+
+    .nav-sidebar a:hover {
+      text-decoration: underline;
+    }
+
+    .close-sidebar {
+      font-size: 1.5em;
+      color: #000;
+      cursor: pointer;
+      align-self: flex-end;
+    }
+
+    .container {
+      margin: 20px;
+      padding: 20px;
+      background: rgba(244, 244, 244, 0.9);
+      border-radius: 12px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    footer {
+      background-color: #333;
+      color: #f4f4f4;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+  </style>
+  <script>
+    function showSection(sectionId) {
+      var sections = document.querySelectorAll('.main section');
+      sections.forEach(function(section) {
+        section.classList.add('hidden');
+      });
+      document.getElementById(sectionId).classList.remove('hidden');
+      closeSidebar(); // Close sidebar on section switch
+    }
+
+    function toggleSidebar() {
+      var sidebar = document.querySelector('.nav-sidebar');
+      sidebar.style.display = sidebar.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    function closeSidebar() {
+      document.querySelector('.nav-sidebar').style.display = 'none';
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      showSection('home');
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <div class="logo">WISPNET</div>
+    <nav class="nav-menu">
+      <a href="javascript:void(0)" onclick="showSection('home')">Home</a>
+      <a href="javascript:void(0)" onclick="showSection('about')">About</a>
+      <a href="javascript:void(0)" onclick="showSection('services')">Services</a>
+      <a href="javascript:void(0)" onclick="showSection('projects')">Projects</a>
+      <a href="javascript:void(0)" onclick="showSection('contact')">Contact</a>
+    </nav>
+    <div class="hamburger" onclick="toggleSidebar()">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/menu--v1.png" alt="Menu">
+    </div>
+  </header>
+
+  <div class="nav-sidebar">
+    <div class="close-sidebar" onclick="toggleSidebar()">✕</div>
+    <a href="javascript:void(0)" onclick="showSection('home')">Home</a>
+    <a href="javascript:void(0)" onclick="showSection('about')">About</a>
+    <a href="javascript:void(0)" onclick="showSection('services')">Services</a>
+    <a href="javascript:void(0)" onclick="showSection('projects')">Projects</a>
+    <a href="javascript:void(0)" onclick="showSection('contact')">Contact</a>
+  </div>
+
+  <div class="container">
+    <section id="home">
+      <h2>Home</h2>
+      <p>This is the Test Development Site for WISPNET.</p>
+    </section>
+    <section id="about" class="hidden">
+      <h2>About</h2>
+      <p>The WISPNET is an experimental LAN created for learning and innovation.</p>
+    </section>
+    <section id="services" class="hidden">
+      <h2>Services</h2>
+      <p>Our services include web design and custom Linux Mint distributions.</p>
+    </section>
+    <section id="projects" class="hidden">
+      <h2>Projects</h2>
+      <p>Check out <a href="https://wisp.wipsnet.org/IOserver/">IOserver</a> for games and more!</p>
+    </section>
+    <section id="contact" class="hidden">
+      <h2>Contact</h2>
+      <p>Contact us at <a href="mailto:admin@wispnet.org">admin@wispnet.org</a>.</p>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 WISPNET | All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
