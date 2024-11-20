@@ -13,40 +13,52 @@
     }
 
     /* Sidebar Styling */
-    .sidebar {
-      height: 100%; /* Full height */
-      width: 0; /* Start with a width of 0 */
-      position: fixed; /* Stay in place */
-      z-index: 1; /* Sit on top */
-      top: 0;
-      left: 0;
-      background-color: #111; /* Black background */
-      overflow-x: hidden; /* Disable horizontal scroll */
-      transition: 0.5s; /* Smooth opening/closing */
-      padding-top: 60px; /* Add padding for content */
-    }
+.sidebar {
+  height: 100%; /* Full height */
+  width: 0; /* Start with a width of 0 */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  top: 0;
+  left: 0;
+  background-color: #111; /* Black background */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* Smooth opening/closing */
+  padding-top: 60px; /* Add padding for content */
+  display: flex; /* Use Flexbox */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+}
 
-    .sidebar a {
-      padding: 10px 15px;
-      text-decoration: none;
-      font-size: 18px;
-      color: #fff;
-      display: block;
-      transition: 0.3s;
-    }
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+  width: 100%; /* Take full width to align properly */
+  text-align: center; /* Center the text inside the links */
+}
 
-    .sidebar a:hover {
-      background-color: #575757;
-    }
+.sidebar a:hover {
+  background-color: #575757;
+}
 
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 25px;
-      font-size: 36px;
-      color: #fff;
-      text-decoration: none;
-    }
+.close-btn {
+  font-size: 2em; /* Size of the X */
+  color: #f4f4f4; /* Color of the X */
+  background: transparent; /* Ensure the background is transparent */
+  border: none; /* No border around the button */
+  cursor: pointer;
+  font-weight: lighter; /* Ensures the "X" is thin */
+  padding: 0; /* Remove any extra padding */
+  position: absolute; /* Position it at the top-right */
+  top: 20px;
+  right: 20px;
+}
+
+
 
     /* Main Content */
     .main {

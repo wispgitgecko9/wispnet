@@ -40,18 +40,27 @@
     }
 
     a {
-      font-size: 1.5em;
+      font-size: 2em; /* Larger font size for links */
       margin: 10px 0;
       max-width: 600px;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-      color: #4CAF50;
+      color: #f4f4f4;
       text-decoration: none;
+      opacity: 0.8; /* Transparency */
+      transition: 0.3s;
+    }
+
+    a:hover {
+      background-color: #575757;
+      opacity: 1; /* Full opacity on hover */
     }
 
     .logo-container {
       position: absolute;
       top: 15px;
-      left: 20px;
+      left: 50%; /* Center the logo horizontally */
+      transform: translateX(-50%); /* Offset by half the logo width */
+      z-index: 3; /* Keep the logo above the sidebar */
     }
 
     .logo-container img {
@@ -59,26 +68,33 @@
       height: 64px;
     }
 
-    /* Sidebar styles */
+    /* Full-screen sidebar styles */
     #sidebar {
       position: fixed;
       top: 0;
-      left: -250px; /* Initially hidden off-screen */
+      left: 0; /* Make sure it starts at the left of the screen */
       height: 100%;
-      width: 250px;
-      background-color: #333;
+      width: 100%; /* Make sidebar full width */
+      background-color: rgba(51, 51, 51, 0.8); /* Transparent background */
       color: white;
       padding-top: 60px;
       transition: 0.3s;
+      z-index: 2;
+      display: none; /* Initially hidden */
+      display: flex;
+      flex-direction: column; /* Arrange links vertically */
+      justify-content: center; /* Center the items vertically */
+      align-items: center; /* Center the items horizontally */
     }
 
     #sidebar a {
-      padding: 10px 15px;
+      padding: 15px 20px;
       text-decoration: none;
-      font-size: 1.5em;
+      font-size: 2.5em; /* Increase size */
       color: #f4f4f4;
       display: block;
       transition: 0.3s;
+      text-align: center;
     }
 
     #sidebar a:hover {
@@ -90,9 +106,20 @@
       color: #f4f4f4;
       cursor: pointer;
       position: fixed;
-      top: 15px;
-      left: 15px;
-      z-index: 1;
+      top: 15px; /* Distance from the top */
+      left: 20px; /* Set this to a fixed value from the left edge to position it at the left */
+      z-index: 3; /* Ensure it stays above other elements */
+    }
+
+    /* Close button ("X") */
+    #closeBtn {
+      font-size: 3em;
+      color: #f4f4f4;
+      cursor: pointer;
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      z-index: 4;
     }
 
     /* Section background images */
@@ -115,15 +142,13 @@
       background-size: cover;
       background-color: #333;
     }
-
-    /* Other styles... */
-
   </style>
 </head>
 <body>
   <!-- Sidebar and toggle button -->
-  <div id="menuToggle">☰ Open Menu</div>
+  <div id="menuToggle">☰</div>
   <div id="sidebar">
+    <div id="closeBtn" onclick="closeSidebar()">✖</div>
     <a href="#welcome" onclick="showSection('welcome')">Welcome</a>
     <a href="#about" onclick="showSection('about')">About</a>
     <a href="#pong" onclick="showSection('pong')">Pong</a>
@@ -158,12 +183,12 @@
   <script>
     // Function to open the sidebar
     function openSidebar() {
-      document.getElementById("sidebar").style.left = "0";
+      document.getElementById("sidebar").style.display = "block";  // Show sidebar
     }
 
     // Function to close the sidebar
     function closeSidebar() {
-      document.getElementById("sidebar").style.left = "-250px";
+      document.getElementById("sidebar").style.display = "none";  // Hide sidebar
     }
 
     // Show the section based on the link clicked
