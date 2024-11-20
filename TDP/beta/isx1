@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IOserver</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth; /* Enables smooth scrolling */
+      font-family: Arial, sans-serif;
+      color: #f4f4f4;
+    }
+
+    section {
+      height: 100vh; /* Full viewport height for each section */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    p {
+      font-size: 1.5em;
+      margin: 10px 0;
+      max-width: 600px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    a {
+      font-size: 1.5em;
+      margin: 10px 0;
+      max-width: 600px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      color: #4CAF50;
+      text-decoration: none;
+    }
+
+    .logo-container {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+    }
+
+    .logo-container img {
+      width: 64px;
+      height: 64px;
+    }
+
+    /* Sidebar styles */
+    #sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px; /* Initially hidden off-screen */
+      height: 100%;
+      width: 250px;
+      background-color: #333;
+      color: white;
+      padding-top: 60px;
+      transition: 0.3s;
+    }
+
+    #sidebar a {
+      padding: 10px 15px;
+      text-decoration: none;
+      font-size: 1.5em;
+      color: #f4f4f4;
+      display: block;
+      transition: 0.3s;
+    }
+
+    #sidebar a:hover {
+      background-color: #575757;
+    }
+
+    #menuToggle {
+      font-size: 2em;
+      color: #f4f4f4;
+      cursor: pointer;
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 1;
+    }
+
+    /* Section background images */
+    #welcome {
+      background: url('https://wisp.wispnet.org/resources/redlight-trainyard_img(DSC_0157).JPG') no-repeat center;
+      background-size: cover;
+    }
+
+    #about {
+      background: url('https://wisp.wispnet.org/resources/trainrun_img(IMG_0936).jpeg') no-repeat center center;
+      background-size: cover;
+    }
+
+    #pong {
+      background: url('https://wisp.wispnet.org/resources/x/pong.png') no-repeat center center;
+      background-size: cover;
+    }
+
+    #maze {
+      background-size: cover;
+      background-color: #333;
+    }
+
+    /* Other styles... */
+
+  </style>
+</head>
+<body>
+  <!-- Sidebar and toggle button -->
+  <div id="menuToggle">☰ Open Menu</div>
+  <div id="sidebar">
+    <a href="#welcome" onclick="showSection('welcome')">Welcome</a>
+    <a href="#about" onclick="showSection('about')">About</a>
+    <a href="#pong" onclick="showSection('pong')">Pong</a>
+    <a href="#maze" onclick="showSection('maze')">Maze</a>
+  </div>
+
+  <!-- Content Sections -->
+  <div class="logo-container">
+    <img src="https://wisp.wispnet.org/depreciated/oldlogo/WNLogo-2.png" alt="WISPNET Logo">
+  </div> 
+
+  <section id="welcome">
+    <h1>Welcome to IOserver</h1>
+    <p>A collection of JavaScript-based games created while learning JavaScript. Check them out!</p>
+  </section>
+
+  <section id="about">
+    <h1>About IOserver</h1>
+    <p>IOserver is a web-based platform dedicated to hosting simple JavaScript games for users to enjoy. Stay tuned for more updates!</p>
+  </section>
+
+  <section id="pong">
+    <h1><a href="/IOserver/Pong/">Pong</a></h1>
+    <p>Play a classic dating back to 1972. A simple but effective Pong!</p>
+  </section>
+
+  <section id="maze">
+    <h1><a href="/IOserver/Maze/">Maze</a></h1>
+    <p>As obsolete and buggy as it may seem, the Maze game of IOserver was the first game aired on the first local WISPNET network. I hope you enjoy!</p>
+  </section>
+
+  <script>
+    // Function to open the sidebar
+    function openSidebar() {
+      document.getElementById("sidebar").style.left = "0";
+    }
+
+    // Function to close the sidebar
+    function closeSidebar() {
+      document.getElementById("sidebar").style.left = "-250px";
+    }
+
+    // Show the section based on the link clicked
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll("section");
+      sections.forEach(section => {
+        section.style.display = "none";
+      });
+      document.getElementById(sectionId).style.display = "flex";
+      closeSidebar(); // Close the sidebar after selection
+    }
+
+    // Open the sidebar when clicking the menu toggle button
+    document.getElementById("menuToggle").onclick = openSidebar;
+  </script>
+
+</body>
+</html>
