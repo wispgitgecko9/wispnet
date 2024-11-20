@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8-Bit Catch Game</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #4CAF50;
+        }
+
+        canvas {
+            background-color: #f4f4f4;
+            border: 2px solid #333;
+        }
+
+        h1, p {
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Bombfall</h1>
+        <p>Use the left and right arrow keys to move the player and avoid the falling objects!</p>
+        <canvas id="gameCanvas" width="400" height="600"></canvas>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Game variables
+        const player = {
+            x: 180,
+            y: 550,
+            width: 40,
+            height: 40,
+            speed: 5
+        };
+        const fallingObjects = [];
+        const objectSize = 20;
+        let gameRunning = true;
+
+        // Texture images
+        const playerTexture = new Image();
+        playerTexture.src = 'player-texture.png'; // Replace with your texture path
+
+        const objectTexture = new Image();
+        objectTexture.src = 'object-texture.png'; // Replace with your texture path
+
+        // Control player movement
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' && player.x > 0) {
+                player.x -= player.speed;
+            } else if (e.key === 'ArrowRight' && player.x < canvas.width - player.width) {
+                player.x += player.speed;
+            }
+        });
+
+        // Create falling objects
+        function createObject() {
+            const xPosition = Math.floor(Math.random() * (canvas.width - objectSize));
+            fallingObjects.push({ x: xPosition, y: 0 });
+        }
+
+        // Update and draw the game
+        function update() {
+            if (!gameRunning) return;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw player
+            ctx.drawImage(playerTexture, player.x, player.y, player.width, player.height);
+
+            // Draw and update falling objects
+            for (let i = 0; i < fallingObjects.length; i++) {
+                const obj = fallingObjects[i];
+                ctx.drawImage(objectTexture, obj.x, obj.y, objectSize, objectSize);
+                obj.y += 3; // Adjust this number to control speed
+
+                // Check for collision with the player
+                if (
+                    obj.x < player.x + player.width &&
+                    obj.x + objectSize > player.x &&
+                    obj.y < player.y + player.height &&
+                    obj.y + objectSize > player.y
+                ) {
+                    gameRunning = false;
+                    alert('Game Over!');
+                }
+            }
+        }
+
+        // Game loop
+        setInterval(() => {
+            update();
+            if (Math.random() < 0.03) createObject();
+        }, 1000 / 60);
+    </script>
+</body>
+</html>
