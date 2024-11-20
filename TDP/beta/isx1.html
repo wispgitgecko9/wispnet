@@ -8,22 +8,26 @@
     body, html {
       margin: 0;
       padding: 0;
-      scroll-behavior: smooth; /* Enables smooth scrolling */
+      scroll-behavior: smooth;
       font-family: Arial, sans-serif;
       color: #f4f4f4;
+      height: 100%; /* Ensures full height layout */
     }
 
     section {
-      height: 100vh; /* Full viewport height for each section */
-      display: flex;
+      height: 100vh;
+      display: none; /* Hide all sections by default */
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      background-size: contain;
+      background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      background-attachment: scroll;
+    }
+
+    section.active {
+      display: flex; /* Show the active section */
     }
 
     h1 {
@@ -40,27 +44,27 @@
     }
 
     a {
-      font-size: 2em; /* Larger font size for links */
+      font-size: 2em;
       margin: 10px 0;
       max-width: 600px;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
       color: #f4f4f4;
       text-decoration: none;
-      opacity: 0.8; /* Transparency */
+      opacity: 0.8;
       transition: 0.3s;
     }
 
     a:hover {
       background-color: #575757;
-      opacity: 1; /* Full opacity on hover */
+      opacity: 1;
     }
 
     .logo-container {
       position: absolute;
       top: 15px;
-      left: 50%; /* Center the logo horizontally */
-      transform: translateX(-50%); /* Offset by half the logo width */
-      z-index: 3; /* Keep the logo above the sidebar */
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
     }
 
     .logo-container img {
@@ -68,29 +72,27 @@
       height: 64px;
     }
 
-    /* Full-screen sidebar styles */
     #sidebar {
       position: fixed;
       top: 0;
-      left: 0; /* Make sure it starts at the left of the screen */
+      left: 0;
       height: 100%;
-      width: 100%; /* Make sidebar full width */
-      background-color: rgba(51, 51, 51, 0.8); /* Transparent background */
+      width: 100%;
+      background-color: rgba(51, 51, 51, 0.8);
       color: white;
       padding-top: 60px;
       transition: 0.3s;
       z-index: 2;
-      display: none; /* Initially hidden */
-      display: flex;
-      flex-direction: column; /* Arrange links vertically */
-      justify-content: center; /* Center the items vertically */
-      align-items: center; /* Center the items horizontally */
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     #sidebar a {
       padding: 15px 20px;
       text-decoration: none;
-      font-size: 2.5em; /* Increase size */
+      font-size: 2.5em;
       color: #f4f4f4;
       display: block;
       transition: 0.3s;
@@ -106,12 +108,11 @@
       color: #f4f4f4;
       cursor: pointer;
       position: fixed;
-      top: 15px; /* Distance from the top */
-      left: 20px; /* Set this to a fixed value from the left edge to position it at the left */
-      z-index: 3; /* Ensure it stays above other elements */
+      top: 15px;
+      left: 20px;
+      z-index: 3;
     }
 
-    /* Close button ("X") */
     #closeBtn {
       font-size: 3em;
       color: #f4f4f4;
@@ -122,19 +123,18 @@
       z-index: 4;
     }
 
-    /* Section background images */
     #welcome {
       background: url('https://wisp.wispnet.org/resources/redlight-trainyard_img(DSC_0157).JPG') no-repeat center;
       background-size: cover;
     }
 
     #about {
-      background: url('https://wisp.wispnet.org/resources/trainrun_img(IMG_0936).jpeg') no-repeat center center;
+      background: url('https://wisp.wispnet.org/resources/trainrun_img(IMG_0936).jpeg') no-repeat center;
       background-size: cover;
     }
 
     #pong {
-      background: url('https://wisp.wispnet.org/resources/x/pong.png') no-repeat center center;
+      background: url('https://wisp.wispnet.org/resources/x/pong.png') no-repeat center;
       background-size: cover;
     }
 
@@ -160,7 +160,7 @@
     <img src="https://wisp.wispnet.org/depreciated/oldlogo/WNLogo-2.png" alt="WISPNET Logo">
   </div> 
 
-  <section id="welcome">
+  <section id="welcome" class="active">
     <h1>Welcome to IOserver</h1>
     <p>A collection of JavaScript-based games created while learning JavaScript. Check them out!</p>
   </section>
@@ -183,21 +183,21 @@
   <script>
     // Function to open the sidebar
     function openSidebar() {
-      document.getElementById("sidebar").style.display = "block";  // Show sidebar
+      document.getElementById("sidebar").style.display = "block";
     }
 
     // Function to close the sidebar
     function closeSidebar() {
-      document.getElementById("sidebar").style.display = "none";  // Hide sidebar
+      document.getElementById("sidebar").style.display = "none";
     }
 
     // Show the section based on the link clicked
     function showSection(sectionId) {
       const sections = document.querySelectorAll("section");
       sections.forEach(section => {
-        section.style.display = "none";
+        section.classList.remove('active');
       });
-      document.getElementById(sectionId).style.display = "flex";
+      document.getElementById(sectionId).classList.add('active');
       closeSidebar(); // Close the sidebar after selection
     }
 
