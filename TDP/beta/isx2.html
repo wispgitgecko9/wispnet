@@ -3,11 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The WISPNET project is a quickly growing umbrella of all of the endeavors of WiSP and the WISPNET community.">
-  <link rel="icon" href="https://wisp.wispnet.org/resources/icx/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" sizes="180x180" href="https://wisp.wispnet.org/resources/icx/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://wisp.wispnet.org/resources/icx/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://wisp.wispnet.org/resources/icx/favicon-16x16.png">
   <title>IOserver</title>
   <style>
     body, html {
@@ -16,12 +11,11 @@
       scroll-behavior: smooth;
       font-family: Arial, sans-serif;
       color: #f4f4f4;
-      height: 100%; /* Ensures full height layout */
     }
 
     section {
       height: 100vh;
-      display: none; /* Hide all sections by default */
+      display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
@@ -29,10 +23,7 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-    }
-
-    section.active {
-      display: flex; /* Show the active section */
+      transition: opacity 0.3s ease-in-out;
     }
 
     h1 {
@@ -49,10 +40,7 @@
     }
 
     a {
-      font-size: 2em;
-      margin: 10px 0;
-      max-width: 600px;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      font-size: 1.5em;
       color: #f4f4f4;
       text-decoration: none;
       opacity: 0.8;
@@ -60,12 +48,11 @@
     }
 
     a:hover {
-      background-color: #575757;
       opacity: 1;
     }
 
     .logo-container {
-      position: absolute;
+      position: fixed;
       top: 15px;
       left: 50%;
       transform: translateX(-50%);
@@ -82,10 +69,9 @@
       top: 0;
       left: 0;
       height: 100%;
-      width: 100%;
-      background-color: rgba(51, 51, 51, 0.8);
+      width: 250px;
+      background-color: rgba(51, 51, 51, 0.95);
       color: white;
-      padding-top: 60px;
       z-index: 2;
       display: none;
       flex-direction: column;
@@ -96,17 +82,17 @@
     }
 
     #sidebar.visible {
+      display: flex;
       opacity: 1; /* Fully visible when active */
     }
 
     #sidebar a {
       padding: 15px 20px;
       text-decoration: none;
-      font-size: 2.5em;
+      font-size: 1.5em;
       color: #f4f4f4;
       display: block;
       transition: 0.3s;
-      text-align: center;
     }
 
     #sidebar a:hover {
@@ -139,29 +125,24 @@
     }
 
     #maze {
-      background-size: cover;
       background-color: #333;
     }
   </style>
 </head>
 <body>
   <!-- Sidebar and toggle button -->
-  <div id="menuToggle" aria-label="Toggle Menu">☰</div>
+  <div id="menuToggle">☰</div>
   <div id="sidebar">
-    <a href="#welcome" onclick="showSection('welcome', event)">Welcome</a>
-    <a href="#about" onclick="showSection('about', event)">About</a>
-    <a href="#pong" onclick="showSection('pong', event)">Pong</a>
-    <a href="#maze" onclick="showSection('maze', event)">Maze</a>
+    <a href="#welcome" onclick="showSection('welcome')">Welcome</a>
+    <a href="#about" onclick="showSection('about')">About</a>
+    <a href="#pong" onclick="showSection('pong')">Pong</a>
+    <a href="#maze" onclick="showSection('maze')">Maze</a>
   </div>
-  
 
-<!-- Content Sections -->
-<div class="logo-container">
-  <a href="https://wisp.wispnet.org" target="_blank">
+  <!-- Content Sections -->
+  <div class="logo-container">
     <img src="https://wisp.wispnet.org/depreciated/oldlogo/WNLogo-2.png" alt="WISPNET Logo">
-  </a>
-</div>
-
+  </div> 
 
   <section id="welcome" class="active">
     <h1>Welcome to IOserver</h1>
@@ -184,18 +165,13 @@
   </section>
 
   <script>
+    // Function to toggle the sidebar visibility
     function toggleSidebar() {
       const sidebar = document.getElementById("sidebar");
-      if (sidebar.style.display === "flex") {
+      if (sidebar.classList.contains("visible")) {
         sidebar.classList.remove("visible");
-        setTimeout(() => {
-          sidebar.style.display = "none";
-        }, 300);
       } else {
-        sidebar.style.display = "flex";
-        setTimeout(() => {
-          sidebar.classList.add("visible");
-        }, 0);
+        sidebar.classList.add("visible");
       }
     }
 
@@ -203,15 +179,21 @@
     document.getElementById("menuToggle").onclick = toggleSidebar;
 
     // Show the section based on the link clicked
-    function showSection(sectionId, event) {
-      event.preventDefault(); // Prevent default anchor behavior
+    function showSection(sectionId) {
+      const targetSection = document.getElementById(sectionId);
+      targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      // Optionally highlight the active section
       const sections = document.querySelectorAll("section");
       sections.forEach(section => {
         section.classList.remove('active');
       });
-      document.getElementById(sectionId).classList.add('active');
-      toggleSidebar(); // Close the sidebar after selection
+      targetSection.classList.add('active');
+
+      // Close the sidebar
+      toggleSidebar();
     }
   </script>
+
 </body>
 </html>
