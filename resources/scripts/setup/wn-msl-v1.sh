@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#WISPNET Mint Setup Stable
+#WISPNET Mint Setup Light
 #Version:   1
 
 # Ensure the script runs with sudo
@@ -123,13 +123,8 @@ install_essentials
 install_python
 install_nodejs
 install_apache
-install_docker
-install_virtualbox
 install_networking_tools
 install_dev_tools
-install_chromium
-install_gimp
-install_esp_arduino_tools
 cleanup_system
 
 echo "Double checking system..."
@@ -143,7 +138,7 @@ __        __        __ _______  _____ _____  _   _  ______ _______
    \ \/ /    \ \/ /    __| |__ ____) | |    | |\  || |____   | |   
     \__/      \__/    |_______|_____/|_|    |_| \_||______|  |_|   
 
-Setup complete! This WISPNET computer is now ready for your use! |NOTICE: Stable edition installed.|
+Setup complete! This WISPNET computer is now ready for your use! |NOTICE: Light edition installed.|
 Recommended: Reboot your system to apply all changes.
 
 
