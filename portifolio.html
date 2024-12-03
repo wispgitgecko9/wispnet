@@ -1,21 +1,196 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>My Portifolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The WISPNET project is a quickly growing umbrella of all of the endeavors of WiSP and the WISPNET community.">
+  <link rel="icon" href="https://wisp.wispnet.org/resources/icx/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://wisp.wispnet.org/resources/icx/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://wisp.wispnet.org/resources/icx/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://wisp.wispnet.org/resources/icx/favicon-16x16.png">
+  <title>WISPNET – Home</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    body, html {
       margin: 0;
       padding: 0;
-      background: url('https://wisp.wispnet.org/resources/lightstreet_img(DSC_0337).JPG') no-repeat center center fixed;
-      background-size: cover;
-      color: #333;
-      display: flex;
-      flex-direction: column;
+      scroll-behavior: smooth;
+      font-family: Arial, sans-serif;
+      color: #000000;
+      height: 100%; /* Ensures full height layout */
     }
-  </styles>
+
+    section {
+      height: 100vh; /* Make sections fill the viewport */
+      display: none; /* Hide all sections by default */
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    section.active {
+      display: flex; /* Show the active section */
+    }
+
+    h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+
+    p {
+      font-size: 1.5em;
+      margin: 10px 0;
+      max-width: 600px;
+    }
+
+    footer {
+     background-color: #000;
+     color: #fff;
+     padding: 20px;
+     text-align: center;
+     font-family: Arial, sans-serif;
+    }
+
+footer a img {
+  width: 24px;
+  height: 24px;
+}
+
+footer a {
+  margin: 0 10px;
+}
+
+footer div {
+  margin-bottom: 10px;
+}
+
+footer div:last-child {
+  font-size: 12px;
+  color: #aaa;
+}
+
+
+    #main {
+      background-image: url('https://wisp.wispnet.org/resources/lightstreet_img(DSC_0338).JPG');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Sidebar styling */
+    #sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(51, 51, 51, 0.8);
+      color: white;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0; /* Start hidden */
+      transition: opacity 0.3s ease-in-out; /* Smooth fade effect */
+    }
+
+    #sidebar.visible {
+      display: flex;
+      opacity: 1;
+    }
+
+    #sidebar a {
+      padding: 15px 20px;
+      text-decoration: none;
+      font-size: 2.5em;
+      color: #f4f4f4;
+      display: block;
+      transition: 0.3s;
+      text-align: center;
+    }
+
+    #sidebar a:hover {
+      background-color: #575757;
+    }
+
+    #menuToggle {
+      font-size: 2em;
+      color: #333;
+      cursor: pointer;
+      position: fixed;
+      top: 15px;
+      left: 20px;
+      z-index: 3;
+    }
+  </style>
 </head>
-    <body> {
-    } </body>
+<body>
+  <!-- Sidebar and toggle button -->
+  <div id="menuToggle" aria-label="Toggle Menu">☰</div>
+  <div id="sidebar">
+    <a href="#main" onclick="showSection('main', event)">Main</a>
+  </div>
+
+  <!-- Content Sections -->
+  <section id="main" class="active">
+    <h1>Welcome to WISPNET</h1>
+    <p>Placeholder content for now!</p>
+  </section>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      if (sidebar.style.display === "flex") {
+        sidebar.classList.remove("visible");
+        setTimeout(() => {
+          sidebar.style.display = "none";
+        }, 300);
+      } else {
+        sidebar.style.display = "flex";
+        setTimeout(() => {
+          sidebar.classList.add("visible");
+        }, 0);
+      }
+    }
+
+    // Bind the toggle function to the menu button
+    document.getElementById("menuToggle").onclick = toggleSidebar;
+
+    // Show the section based on the link clicked
+    function showSection(sectionId, event) {
+      event.preventDefault(); // Prevent default anchor behavior
+      const sections = document.querySelectorAll("section");
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(sectionId).classList.add('active');
+      toggleSidebar(); // Close the sidebar after selection
+    }
+  </script>
+</body>
+
+<footer style="background-color: #000; color: #fff; padding: 20px; text-align: center; font-family: Arial, sans-serif;">
+  <!-- Social Media Icons -->
+  <div style="margin-bottom: 10px;">
+    <a href="https://github.com" target="_blank" style="margin: 0 10px;">
+      <img src="resources/logo/github/github-mark-white.svg" alt="GitHub" style="width: 24px; height: 24px;">
+    </a>
+    <a href="https://discord.com" target="_blank" style="margin: 0 10px;">
+      <img src="resources/logo/discord/discord-mark-white.svg" alt="Discord" style="width: 24px; height: 24px;">
+    </a>
+  </div>
+
+  <!-- Copyright Text -->
+  <div style="margin-bottom: 5px; font-size: 14px;">
+    WISPNET © 2024—2025
+  </div>
+
+  <!-- Placeholder Text -->
+  <div style="font-size: 12px; color: #aaa;">
+    Placeholder text for additional information or disclaimers.
+  </div>
+</footer>
+
 </html>
