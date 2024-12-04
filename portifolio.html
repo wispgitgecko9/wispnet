@@ -16,12 +16,12 @@
       scroll-behavior: smooth;
       font-family: Arial, sans-serif;
       color: #000000;
-      height: 100%; /* Ensures full height layout */
+      height: 100%;
     }
 
     section {
-      height: 100vh; /* Make sections fill the viewport */
-      display: none; /* Hide all sections by default */
+      height: 100vh;
+      display: none;
       flex-direction: column;
       justify-content: center;
       align-items: center;
@@ -32,7 +32,7 @@
     }
 
     section.active {
-      display: flex; /* Show the active section */
+      display: flex;
     }
 
     h1 {
@@ -47,31 +47,38 @@
     }
 
     footer {
-     background-color: #000;
-     color: #fff;
-     padding: 20px;
-     text-align: center;
-     font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-family: Arial, sans-serif;
     }
 
-footer a img {
-  width: 24px;
-  height: 24px;
-}
+    footer a img {
+      width: 24px;
+      height: 24px;
+    }
 
-footer a {
-  margin: 0 10px;
-}
+    footer a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #fff; /* Ensure the links are white */
+      font-size: 1.2em;
+      transition: color 0.3s ease;
+    }
 
-footer div {
-  margin-bottom: 10px;
-}
+    footer a:hover {
+      color: #f4f4f4; /* Slightly lighter white on hover */
+    }
 
-footer div:last-child {
-  font-size: 12px;
-  color: #aaa;
-}
+    footer div {
+      margin-bottom: 10px;
+    }
 
+    footer div:last-child {
+      font-size: 12px;
+      color: #aaa;
+    }
 
     #main {
       background-image: url('https://wisp.wispnet.org/resources/lightstreet_img(DSC_0338).JPG');
@@ -79,40 +86,58 @@ footer div:last-child {
       background-position: center;
     }
 
-    /* Sidebar styling */
-    #sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background-color: rgba(51, 51, 51, 0.8);
-      color: white;
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      opacity: 0; /* Start hidden */
-      transition: opacity 0.3s ease-in-out; /* Smooth fade effect */
-    }
+    /* Updated Sidebar Styling */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #f4f4f4;
+  color: white;
+  display: flex; /* Always keep it in the DOM */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* Start invisible */
+  pointer-events: none; /* Disable interactions when not visible */
+  transition: opacity 0.3s ease-in-out; /* Smooth fade effect */
+}
 
-    #sidebar.visible {
-      display: flex;
-      opacity: 1;
-    }
+#sidebar.visible {
+  opacity: 1;
+  pointer-events: auto; /* Enable interactions when visible */
+}
+
 
     #sidebar a {
       padding: 15px 20px;
       text-decoration: none;
       font-size: 2.5em;
-      color: #f4f4f4;
+      color: #000;
       display: block;
-      transition: 0.3s;
+      position: relative; /* To position the pseudo-element */
+      transition: color 0.3s;
       text-align: center;
     }
 
+    #sidebar a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px; /* Adjust the height of the underline */
+      background-color: #000;
+      transition: width 0.3s ease;
+    }
+
+    #sidebar a:hover::after {
+      width: 100%; /* Full width on hover */
+    }
+
     #sidebar a:hover {
-      background-color: #575757;
+      text-decoration: none; /* Remove default underline */
     }
 
     #menuToggle {
@@ -126,71 +151,62 @@ footer div:last-child {
     }
   </style>
 </head>
-<body>
-  <!-- Sidebar and toggle button -->
-  <div id="menuToggle" aria-label="Toggle Menu">☰</div>
-  <div id="sidebar">
-    <a href="#main" onclick="showSection('main', event)">Main</a>
-  </div>
 
-  <!-- Content Sections -->
+<body>
+    <div id="menuToggle" role="button" tabindex="0" aria-label="Toggle Menu">☰</div>
+    <div id="sidebar">
+      <a href="#main" onclick="showSection('main', event)">Home</a>
+      <a href="https://wisp.wispnet.org/IOserver">IOserver</a>
+      <a href="https://wisp.wispnet.org/resources">Resources</a>
+      <a href="https://wisp.wispnet.org/depreciated">Depreciated</a>
+      <a href="https://wisp.wispnet.org/index.html#contact">Contact</a>
+    </div>
+
+
   <section id="main" class="active">
     <h1>Welcome to WISPNET</h1>
-    <p>Placeholder content for now!</p>
+    <p>The WISPNET project is a quickly growing umbrella of all of the endeavors of William "WiSP" S. Popovici and the WISPNET community </p>
+    <p></p>
+    <p>Explore all the different sites and features of the WISPNET sites, and feel free to give us feedback! A small community of web developers, we're always looking to improve our sites!</p>
   </section>
-
   <script>
     function toggleSidebar() {
-      const sidebar = document.getElementById("sidebar");
-      if (sidebar.style.display === "flex") {
-        sidebar.classList.remove("visible");
-        setTimeout(() => {
-          sidebar.style.display = "none";
-        }, 300);
-      } else {
-        sidebar.style.display = "flex";
-        setTimeout(() => {
-          sidebar.classList.add("visible");
-        }, 0);
-      }
-    }
+  const sidebar = document.getElementById("sidebar");
+  sidebar.classList.toggle("visible");
+}
 
-    // Bind the toggle function to the menu button
+
     document.getElementById("menuToggle").onclick = toggleSidebar;
 
-    // Show the section based on the link clicked
     function showSection(sectionId, event) {
-      event.preventDefault(); // Prevent default anchor behavior
+      event.preventDefault();
       const sections = document.querySelectorAll("section");
       sections.forEach(section => {
         section.classList.remove('active');
       });
       document.getElementById(sectionId).classList.add('active');
-      toggleSidebar(); // Close the sidebar after selection
+      toggleSidebar();
     }
   </script>
+
+  <footer>
+    <div>
+      <a href="https://github.com/wispgitgecko9/wispnet/" target="_blank">
+        <img src="resources/logo/github/github-mark-white.svg" alt="GitHub">
+      </a>
+      <a href="https://discord.com" target="_blank">
+        <img src="resources/logo/discord/discord-mark-white.svg" alt="Discord">
+      </a>
+      <a href="https://reddit.com/r/wispnet" target="_blank">
+        <img src="resources/logo/reddit/Reddit_Icon_1Color_Silhouette-white.svg" alt="Discord">
+      </a>
+    </div>
+    <div>
+      WISPNET © 2024—2025
+    </div>
+    <div>
+      Placeholder text for additional information or disclaimers.
+    </div>
+  </footer>
 </body>
-
-<footer style="background-color: #000; color: #fff; padding: 20px; text-align: center; font-family: Arial, sans-serif;">
-  <!-- Social Media Icons -->
-  <div style="margin-bottom: 10px;">
-    <a href="https://github.com" target="_blank" style="margin: 0 10px;">
-      <img src="resources/logo/github/github-mark-white.svg" alt="GitHub" style="width: 24px; height: 24px;">
-    </a>
-    <a href="https://discord.com" target="_blank" style="margin: 0 10px;">
-      <img src="resources/logo/discord/discord-mark-white.svg" alt="Discord" style="width: 24px; height: 24px;">
-    </a>
-  </div>
-
-  <!-- Copyright Text -->
-  <div style="margin-bottom: 5px; font-size: 14px;">
-    WISPNET © 2024—2025
-  </div>
-
-  <!-- Placeholder Text -->
-  <div style="font-size: 12px; color: #aaa;">
-    Placeholder text for additional information or disclaimers.
-  </div>
-</footer>
-
 </html>
