@@ -25,7 +25,7 @@ with open(text_file_path, "r") as file:
                 print(f"Invalid hex color at ({x}, {y}): {hex_color}")
 
 # Save the rendered image
-output_image_path = "/mnt/data/rendered_image.png"
+output_image_path = "rendered_image.png"
 image.save(output_image_path)
 
 output_image_path
