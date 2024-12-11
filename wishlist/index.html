@@ -106,10 +106,39 @@
   justify-content: space-between;
   align-items: center;
   transition: background-color 0.2s ease;
+  position: relative; /* Provide relative context */
 }
 
-.collapsible-header:hover {
+.collapsible-header::after {
+  content: '';
+  position: absolute; /* Use absolute positioning relative to .collapsible-header */
+  bottom: 0; /* Ensure it appears at the bottom of .collapsible-header */
+  left: 0;
+  width: 0; /* Start with no underline */
+  height: 2px;
+  background-color: #000000;
+  transition: width 0.3s ease;
+}
+
+.collapsible-header:hover::after {
+  width: 100%; /* Full width underline on hover */
+}
+
+
+/*.collapsible-header:hover {
   background-color: #e0e0e0;
+} */
+
+.collapsible-header,
+.collapsible-content {
+  width: 50vw; /* Set width to 50% of the viewport */
+  margin: 0 auto; /* Center each section horizontally */
+  padding: 0.5rem; /* Add some padding for better visuals */
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+.collapsible-content {
+  display: block; /* Ensure the content stretches to the width */
 }
 
 /* Style the collapsible content */
@@ -148,17 +177,15 @@
   padding: 5px;
   width: 200px; /* Set consistent width */
   text-align: left;
-  border: 1px solid #ddd;
-  box-sizing: border-box;
 }
 
 
 
 
-/* Add hover effects to each list item */
+/* Add hover effects to each list item 
 .collapsible-content li:hover {
   color: #4CAF50;
-}
+} */
 
     #wishlist {
       background-image: url('https://wisp.wispnet.org/resources/lightstreet_img(DSC_0338).JPG');
