@@ -142,43 +142,39 @@
 }
 
 /* Style the collapsible content */
+/* Add this section to modify the layout */
 .collapsible-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-  padding: 0 10px;
-  background-color: #fafafa;
-  font-size: 0.9em;
-  line-height: 1.6;
+  display: flex;
+  flex-direction: row; /* Align items horizontally */
+  align-items: flex-start; /* Align items at the top */
+  justify-content: flex-start; /* Align items to the left */
+  gap: 20px; /* Space between image and list */
+  padding: 10px;
+  max-height: 0; /* Start with collapsed content */
+  overflow: hidden; /* Hide content overflow */
+  transition: max-height 0.3s ease-out; /* Smooth transition for height change */
 }
 
 .collapsible-content img {
-  display: block;
-  max-width: 100%; /* Ensure the image is responsive */
-  max-height: 150px; /* Limit the height for consistency */
-  margin: 10px 0 10px auto; /* Add spacing and align right */
-  float: right; /* Aligns the image to the right */
-  border-radius: 4px; /* Optional: Rounded corners */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
+  max-width: 150px; /* Set a fixed width for the image */
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+  margin-top: 0; /* Remove any extra margin at the top */
 }
 
-
 .collapsible-content ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  display: block; /* Stack the list vertically */
   padding-left: 0;
   list-style: disc;
-  overflow: hidden; /* Clear floats to prevent layout breaking */
+  flex-grow: 1; /* Allow the list to take the remaining space */
 }
 
 .collapsible-content li {
   font-size: 1em;
-  color: #000;
+  color: #555;
   padding: 5px;
-  width: 200px; /* Set consistent width */
-  text-align: left;
 }
+
 
 /* Add hover effects to each list item 
 .collapsible-content li:hover {
@@ -279,32 +275,40 @@
   </div>
 
 
-    <section id="wishlist" class="active">
-      <h1>Wishlist</h1>
-      <div class="collapsible">
-        <div class="collapsible-header">
-          <span>Raspberry Pi 5</span>
-          <button class="toggle-arrow">▼</button>
-        </div>
-        <div class="collapsible-content">
-          <ul>
-            <li>Raspberry Pi</li>
-            <img src="https://assets.raspberrypi.com/static/c671804c05a51efc4e3c2a1bdcbafbcf/e8238/raspberry-pi-5.webp" alt="Raspberry Pi 5 Image"> 
-          </ul>
-        </div>
+  <section id="wishlist" class="active">
+    <h1>Wishlist</h1>
+    <div class="collapsible">
+      <div class="collapsible-header">
+        <span>Raspberry Pi 5</span>
+        <button class="toggle-arrow">▼</button>
       </div>
-      <div class="collapsible">
-        <div class="collapsible-header">
-          <span>Fishman Acoustic Guitar Amp</span>
-          <button class="toggle-arrow">▼</button>
-        </div>
-        <div class="collapsible-content">
-          <ul>
-            <li>asdfasdfasdfasdf</li>
-          </ul>
-        </div>
+      <div class="collapsible-content">
+        <ul>
+          <li>Raspberry Pi 5</li>
+          <li>Model B</li>
+          <li>8GB RAM</li>
+          <li>Supports 4K Display</li>
+        </ul>
+        <img src="https://assets.raspberrypi.com/static/c671804c05a51efc4e3c2a1bdcbafbcf/e8238/raspberry-pi-5.webp" alt="Raspberry Pi 5 Image">
       </div>
-    </section>
+    </div>
+    <div class="collapsible">
+      <div class="collapsible-header">
+        <span>Fishman Acoustic Guitar Amp</span>
+        <button class="toggle-arrow">▼</button>
+      </div>
+      <div class="collapsible-content">
+        <ul>
+          <li>Fishman Acoustic Amp</li>
+          <li>Ideal for Acoustic Guitars</li>
+          <li>Portable</li>
+          <li>Clear Sound</li>
+        </ul>
+        <img src="https://example.com/fishman-amp.jpg" alt="Fishman Amp Image">
+      </div>
+    </div>
+  </section>
+  
     
   <script>
     function toggleSidebar() {
