@@ -1,3 +1,7 @@
+#####################################################
+#WISPNET dbx Model 1-Alpha     | Created 12.17.2024 #
+#####################################################
+
 import tkinter as tk
 from tkinter import ttk, messagebox, simpledialog
 
